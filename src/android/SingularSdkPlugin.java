@@ -47,5 +47,7 @@ public class SingularSdkPlugin extends CordovaPlugin {
         }
         Context context = this.cordova.getActivity().getApplicationContext();
         Singular.init(context, config);
+        Map<String, String> map = Singular.getGlobalProperties();
+        callbackContext.success(map);
     }
 }
