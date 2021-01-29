@@ -10,4 +10,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:21.0.3'
     implementation 'com.singular.sdk:singular_sdk:9.6.0'
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.google.android.gms:play-services-basement-17.0.0'
 }
