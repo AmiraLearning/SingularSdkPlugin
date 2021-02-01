@@ -51,7 +51,11 @@ public class SingularSdkPlugin extends CordovaPlugin {
         Context context = this.cordova.getActivity().getApplicationContext();
         Singular.init(context, config);
         Map<String, String> map = Singular.getGlobalProperties();
-        callbackContext.success(map);
+        String give;
+        for(Map.Entry<key, val> entry: map.entrySet()) {
+            give = give + entry.getKey() + "," + entry.getValue() + "\n";
+        }
+        callbackContext.success(give);
         // AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
     }
 }
