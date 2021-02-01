@@ -14,6 +14,8 @@ import com.singular.sdk.*;
 
 import android.content.Context;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+
 /**
  * This class communicates device information to Singular SDK
  */
@@ -48,7 +50,8 @@ public class SingularSdkPlugin extends CordovaPlugin {
         }
         Context context = this.cordova.getActivity().getApplicationContext();
         Singular.init(context, config);
-        Map<String, String> map = Singular.getGlobalProperties();
-        callbackContext.success(map);
+        // Map<String, String> map = Singular.getGlobalProperties();
+        callbackContext.success("TRUE");
+        AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
     }
 }
