@@ -56,9 +56,7 @@ public class SingularSdkPlugin extends CordovaPlugin {
             adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
             callbackContext.success(adInfo.getId());
         } catch(Exception e) {
-            callbackContext.success("ERRORED!");
+            callbackContext.error("Error attempting to retrieve AIFA: ", e);
         }
-
-        // callbackContext.success(give);
     }
 }
