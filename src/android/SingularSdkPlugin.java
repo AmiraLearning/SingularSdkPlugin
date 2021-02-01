@@ -52,7 +52,7 @@ public class SingularSdkPlugin extends CordovaPlugin {
         Singular.init(context, config);
         Map<String, String> map = Singular.getGlobalProperties();
         String give;
-        for(Map.Entry<key, val> entry: map.entrySet()) {
+        for(Map.Entry<String, String> entry: map.entrySet()) {
             give = give + entry.getKey() + "," + entry.getValue() + "\n";
         }
         callbackContext.success(give);
