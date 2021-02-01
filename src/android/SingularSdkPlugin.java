@@ -54,7 +54,7 @@ public class SingularSdkPlugin extends CordovaPlugin {
         adInfo = null;
         try {
             adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
-            callbackContext.success(adInfo);
+            callbackContext.success(adInfo.getId());
         } catch(Exception e) {
             callbackContext.success("ERRORED!");
         }
