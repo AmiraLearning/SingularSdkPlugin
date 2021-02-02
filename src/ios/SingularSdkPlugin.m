@@ -33,10 +33,7 @@
     [Singular setCustomUserId:username];
     [Singular startSession:key withKey:secretKey];
 
-    pluginResult = [CDVPluginResult resultWithStatus:(NSString*) @"hi"];
-
-
-    NSLog(@"%@", command.callbackId);  //deleteme
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @"hi"];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
