@@ -3,6 +3,8 @@
 #import <Cordova/CDV.h>
 #import <Cordova/CDVPlugin.h>
 #import <Singular.h>
+#import <AdSupport/ASIdentifierManager.h>
+
 
 @interface SingularSdkPlugin : CDVPlugin {
   // Member variables go here.
@@ -33,7 +35,9 @@
     [Singular setCustomUserId:username];
     [Singular startSession:key withKey:secretKey];
 
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @"hi"];
+    NSString *idfaString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:idfaString];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
