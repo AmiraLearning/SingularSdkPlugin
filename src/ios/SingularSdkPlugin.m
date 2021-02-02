@@ -16,6 +16,7 @@
 
 - (void)initSingular:(CDVInvokedUrlCommand*)command
 {
+    CDVPluginResult* pluginResult = nil;
     NSString* phrase = [command.arguments objectAtIndex:0];
     phrase = [phrase description];
     phrase = [phrase stringByReplacingOccurrencesOfString:@"(" withString:@""];
@@ -32,8 +33,11 @@
     [Singular setCustomUserId:username];
     [Singular startSession:key withKey:secretKey];
 
+    pluginResult = [CDVPluginResult resultWithStatus:(NSString*) @"hi"];
+
+
     NSLog(@"%@", command.callbackId);  //deleteme
 
-    [self.commandDelegate sendPluginResult:key callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 @end
