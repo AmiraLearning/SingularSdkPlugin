@@ -32,6 +32,6 @@
     [Singular setCustomUserId:username];
     [Singular startSession:key withKey:secretKey];
 
-    [self.commandDelegate sendPluginResult:key];// callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:@"hel" callbackId:command.callbackId];
 }
 @end
