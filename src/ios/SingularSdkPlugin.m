@@ -34,6 +34,6 @@
 
     NSLog(@"%@", command.callbackId)  //deleteme
 
-    [self.commandDelegate sendPluginResult:@"hel" callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:key callbackId:command.callbackId];
 }
 @end
