@@ -32,6 +32,8 @@
     [Singular setCustomUserId:username];
     [Singular startSession:key withKey:secretKey];
 
+    NSLog(@"%@", command.callbackId)  //deleteme
+
     [self.commandDelegate sendPluginResult:@"hel" callbackId:command.callbackId];
 }
 @end
