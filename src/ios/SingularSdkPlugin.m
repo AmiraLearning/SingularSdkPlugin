@@ -34,10 +34,10 @@
 
     [Singular setCustomUserId:username];
 
-    SingularConfig* config = [[SingularConfig alloc] initWithApiKey:apiKey andSecret:secretKey];
-    config.skAdNetworkEnabled = YES;
-    [Singular start:config];
-    // [Singular startSession:apiKey withKey:secretKey];
+    // SingularConfig* config = [[SingularConfig alloc] initWithApiKey:apiKey andSecret:secretKey];
+    // config.skAdNetworkEnabled = YES;
+    // [Singular start:config];
+    [Singular startSession:apiKey withKey:secretKey];
 
     NSString *idfaString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 
