@@ -28,12 +28,16 @@
     phrase = [phrase stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSArray* values = [phrase componentsSeparatedByString: @","];
 
-    NSString *key = [NSString stringWithFormat:@"%@", (NSString *) values[0]];
+    NSString *apiKey = [NSString stringWithFormat:@"%@", (NSString *) values[0]];
     NSString *secretKey = [NSString stringWithFormat:@"%@",(NSString *) values[1]];
     NSString *username = [NSString stringWithFormat:@"%@",(NSString *) values[2]];
 
     [Singular setCustomUserId:username];
-    [Singular startSession:key withKey:secretKey];
+
+    SingularConfig* config = [[SingularConfig alloc] initWithApiKey:apiKey andSecret:secretKey];
+    config.skAdNetworkEnabled = YES;
+    [Singular start:config];
+    // [Singular startSession:apiKey withKey:secretKey];
 
     NSString *idfaString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 
