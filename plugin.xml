@@ -8,6 +8,8 @@
   </js-module>
   <platform name="ios">
     <framework src="Singular-SDK" type="podspec" spec="~> 10.1.5"></framework>
+    <framework src="AdSupport.framework" weak="true" />
+    <framework src="AppTrackingTransparency.framework" weak="true" />
     <config-file parent="/*" target="config.xml">
       <feature name="SingularSdkPlugin">
         <param name="ios-package" value="SingularSdkPlugin" />
