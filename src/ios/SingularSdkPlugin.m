@@ -3,8 +3,8 @@
 #import <Cordova/CDV.h>
 #import <Cordova/CDVPlugin.h>
 #import <Singular.h>
-// #import <AdSupport/ASIdentifierManager.h>
-// #import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/ASIdentifierManager.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 
 @interface SingularSdkPlugin : CDVPlugin {
