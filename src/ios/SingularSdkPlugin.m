@@ -37,10 +37,10 @@
 
     [Singular setCustomUserId:username];
 
-    // SingularConfig* config = [[SingularConfig alloc] initWithApiKey:apiKey andSecret:secretKey];
-    // config.skAdNetworkEnabled = YES;
-    // [Singular start:config];
-    [Singular startSession:apiKey withKey:secretKey];
+    SingularConfig* config = [[SingularConfig alloc] initWithApiKey:apiKey andSecret:secretKey];
+    config.skAdNetworkEnabled = YES;
+    [Singular start:config];
+    // [Singular startSession:apiKey withKey:secretKey];
 
     NSString *idfaString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 
@@ -50,7 +50,6 @@
 }
 
 - (void)requestPermission:(CDVInvokedUrlCommand *)command {
-  NSLog(@"HELLO, HOPEFULLY THIS WORKS");
     [self.commandDelegate runInBackground:^{
         if (@available(iOS 14, *)) {
             [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
@@ -61,7 +60,7 @@
         } else {
             CDVPluginResult* pluginResult = [CDVPluginResult
                                              resultWithStatus:CDVCommandStatus_ERROR
-                                             messageAsString:@"requestPermission is supported only for iOS >= 14"];
+                                             messageAsString:@"Only neccessary to request permission on iOS 14 devices or greater"];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }
     }];

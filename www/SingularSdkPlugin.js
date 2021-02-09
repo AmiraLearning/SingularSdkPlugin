@@ -4,8 +4,8 @@ var SingularSdkPlugin = {
     initSingular: function(phrase, callback) {
         exec(callback, null, 'SingularSdkPlugin', 'initSingular', [phrase]);
     },
-    requestPermission: function() {
-        return new Promise(function(phrase, callback) {
+    requestPermission: function(callback) {
+        return new Promise(function(callback) {
             exec(callback, null, 'SingularSdkPlugin', "requestPermission", []);
         });
     }
