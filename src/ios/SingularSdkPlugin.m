@@ -50,6 +50,7 @@
 }
 
 - (void)requestPermission:(CDVInvokedUrlCommand *)command {
+  NSLog(@"HELLO, HOPEFULLY THIS WORKS");
     [self.commandDelegate runInBackground:^{
         if (@available(iOS 14, *)) {
             [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
